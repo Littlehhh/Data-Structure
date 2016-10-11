@@ -2,7 +2,12 @@
 #define mySort_H
 #include<iostream>
 #include<stdio.h>
-//Çó×î´óÖµ
+//ä¸€äº›æ’åºçš„å®ç°
+//é™†ç»­æ›´æ–°
+
+
+
+//æ±‚æœ€å¤§å€¼
 int sMax(int data[] , int n)
 {
 	int temp = data[0];
@@ -24,7 +29,7 @@ int sMin(int data[] , int n)
 	return temp;
 }
 
-//´òÓ¡Êı×é 
+//æ‰“å°æ•°ç»„ 
 void printArray(int data[] , int n)
 {
     for(int i = 0; i < n; i++)
@@ -41,7 +46,7 @@ void swap(int *x,int *y)
 	*x = *y;
 	*y = temp; 
 }
-//Ã°ÅİÅÅĞò 
+//å†’æ³¡æ’åº 
 void bubbleSort(int data[], int n)
 {
 
@@ -57,7 +62,7 @@ void bubbleSort(int data[], int n)
             }
         }
 }
-//²åÈëÅÅĞò 
+//æ’å…¥æ’åº 
 void insertSort(int data[], int n)
 {
 
@@ -71,7 +76,7 @@ void insertSort(int data[], int n)
     }
 
 }
-//Ñ¡ÔñÅÅĞò 
+//é€‰æ‹©æ’åº 
 void selectSort(int data[], int n)
 {
     for(int i=0; i<n-1; i++)
@@ -90,8 +95,8 @@ void selectSort(int data[], int n)
 
     }
 }
-//Ï£¶ûÅÅĞò
-//Ê¹ÓÃÏ£¶ûÔöÁ¿
+//å¸Œå°”æ’åº
+//ä½¿ç”¨å¸Œå°”å¢é‡
 void shellSort(int data[], int n)
 {	
 	int temp,i; 
