@@ -3,7 +3,7 @@
 #include <iostream>     
 #include <ctime>  
 #include <cstdio>  
-      
+//用于产生随机数      
 using namespace std;  
       
 void myRandom(int start,int end,int num,int array[])  
