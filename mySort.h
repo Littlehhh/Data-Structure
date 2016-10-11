@@ -2,12 +2,34 @@
 #define mySort_H
 #include<iostream>
 #include<stdio.h>
+//求最大值
+int sMax(int data[] , int n)
+{
+	int temp = data[0];
+	for(int i = 0; i < n; i++)
+	{
+		if(temp < data[i])
+			temp = data[i];
+	}
+	return temp;	
+}
+int sMin(int data[] , int n)
+{
+	int temp = data[0];
+	for(int i = 0; i < n; i++)
+	{
+		if(temp > data[i])
+			temp = data[i];
+	}
+	return temp;
+}
+
 //打印数组 
 void printArray(int data[] , int n)
 {
     for(int i = 0; i < n; i++)
     {
-        printf("%4d",data[i]);
+        printf("%6d",data[i]);
     }
 
     cout<<endl;
@@ -25,14 +47,13 @@ void bubbleSort(int data[], int n)
 
 
     for(int i=0; i<n-1; i++)
-        for( int j = n-1; j >= i; j--)
+        for( int j = n-2; j >= i; j--)
         {
             if( data[j] > data[j+1] )
             {
-                swap(data[j],data[j+1]);
-				/*data[j] = data[j] ^ data[j+1];
+				data[j] = data[j] ^ data[j+1];
                 data[j+1] = data[j] ^ data[j+1];
-                data[j] = data[j] ^ data[j+1];*/
+                data[j] = data[j] ^ data[j+1];
             }
         }
 }
@@ -69,7 +90,29 @@ void selectSort(int data[], int n)
 
     }
 }
+//希尔排序
+//使用希尔增量
+void shellSort(int data[], int n)
+{	
+	int temp,i; 
+	for(int Increment = n/2; Increment > 0 ; Increment /=2)
+	{
+		for(i = Increment;i<n;i++)
+		{
+			temp = data[i];
+			int j=0;
+			for(j=i; j>=Increment; j -= Increment)
+				if( temp < data[j-Increment] )
+					data[j] = data[ j-Increment ];
+				else 
+					break;
+			data[j] = temp;
+		 
+	 	} 
+	
+	
+	}
 
-
+}
 
 #endif
