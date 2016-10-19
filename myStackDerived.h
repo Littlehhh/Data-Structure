@@ -5,10 +5,10 @@ template <class T>
 class Stack:public LinkList<T>{
 	public:
 		Stack(){
-		
+		  //不含参构造函数默认继承 
 		}
-		Stack(T a[],int n) : LinkList<T> (T a[],int n) {
-		
+		//含参析构函数需要重新实现 
+		Stack(T a[],int n) : LinkList (a,n) {
 		} 
 		
 		~Stack(){

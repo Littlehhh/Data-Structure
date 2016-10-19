@@ -9,8 +9,9 @@ class Queue:public LinkList<T>{
 	public:
 		Queue()
 		{
-			
 		}
+		Queue(T a[],int n):LinkList(a,n){
+		} 
 		~Queue()
 		{
 		}

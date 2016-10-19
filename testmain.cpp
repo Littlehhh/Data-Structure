@@ -18,7 +18,7 @@ void main()
 	LinkList<int>l2(a,(sizeof(a)/sizeof(a[0])));
 	l2.display();
 	//cout<<"Length  "<<l2.head->data<<endl;
-	Queue<int> q1;
+	Queue<int> q1(a,(sizeof(a)/sizeof(a[0])));
 	q1.EnQueue(5);
 	q1.EnQueue(5);
 	q1.EnQueue(5);
