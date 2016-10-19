@@ -1,5 +1,6 @@
 #ifndef myLinkedList_H
 #define myLinkedList_H
+#include<iostream>
 using namespace std; 
 template <class T>
 struct Node
@@ -15,7 +16,6 @@ class LinkList
     	LinkList( );  			//建立只有头结点的空链表
     	LinkList(T a[ ]);  		//建立有n个元素的单链表
     	~LinkList();            //析构函数
-		int getArrayLen(T &a);
 		int Length();          	//求单链表的长度
     	T Get(int i);           //取单链表中第i个结点的元素值
     	int Locate(T x);       	//求单链表中值为x的元素序号
@@ -27,29 +27,25 @@ class LinkList
 };
 
 
-//*功    能：构建一个单链表
+//构建一个单链表
 template <class T>
 LinkList<T> :: LinkList()
 {
  	first = new Node<T>; 
  	first->next = NULL;
 }
-//该函数将返回数组array的长度
-template <class T>
-int LinkList<T>::getArrayLen(T	&a)
-{
-	return (sizeof(array) / sizeof(array[0]));
-}
 
-//*功    能：将数组a[]中元素建为长度为n的单链表
+//数组a[]中元素建为长度为n的单链表
 template <class T>  
 LinkList<T> :: LinkList(T a[ ])
 {
-    int n;
+    int n=10;
 	first=new Node<T>;     //生成头结点
 	Node <T> *r,*s;
- 	r=first;              //尾指针初始化
- 	n = getArrayLen(T a[]);
+ 	r=first;
+ 	n= (sizeof(a) / sizeof(a[0])); //It's wrong!!!数组传不进来只能传进指针 
+	 
+	        //尾指针初始化
     for (int i=0; i<n; i++)
 	{ 
       	s = new Node<T>; 
