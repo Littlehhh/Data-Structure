@@ -7,16 +7,20 @@ using namespace std;
 void main()
 {
 	int a[] = {5,2,3,6,8};
+/*
 	LinkList<int>l1;
 
 	l1.InsertAtHead(2);
 	l1.InsertAtHead(2);
 	l1.InsertAtIndex(1,5);
 	l1.InsertAtTail(2);
-	l1.display();
+	l1.display();*/
 
 	LinkList<int>l2(a,(sizeof(a)/sizeof(a[0])));
 	l2.display();
+	l2.Inversion();
+	l2.display();
+/*
 	//cout<<"Length  "<<l2.head->data<<endl;
 	Queue<int> q1(a,(sizeof(a)/sizeof(a[0])));
 	q1.EnQueue(5);
@@ -34,7 +38,7 @@ void main()
 	s1.push(33);
 	s1.push(44);
 	s1.pop();
-	s1.display();
+	s1.display();*/
 }
 
 

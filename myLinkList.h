@@ -26,7 +26,7 @@ class LinkList{
 		LinkList(); //有一个头节点的空链表 
 		LinkList(T a[],int n); //生成存入数组a中元素的链表 
 		//析构函数 
-		~LinkList();
+		virtual ~LinkList();
 		//向链表中插入元素
 		void InsertAtHead(T data);
 		void InsertAtIndex(int Index,T data);
@@ -34,7 +34,7 @@ class LinkList{
 		 //删除Index位置的元素
 		void Delete(int Index); 
 		//void DeleteAtTail();
-		 
+	 	void Inversion();//反转链表 
 		void display(); //输出链表元素
 		
 }; 
@@ -143,6 +143,29 @@ LinkList<T> :: DeleteAtTail()
 	temp = tail;
 	tail = NULL;
 }*/
+template <class T>
+void LinkList<T> :: Inversion()
+{
+	Node<T> * temp,*prev,*follow;
+	temp = head->next;
+	prev = temp;
+	
+	if(!temp)
+		cout<<"Empty"<<endl;
+	else
+	{
+		follow = temp->next;
+		while(follow)
+		{
+			temp = follow;
+			follow = temp->next;
+			temp->next = prev;
+			prev = temp;
+		}
+		head->next->next = NULL;
+		head->next = temp;
+	}
+}
 template <class T>
 void LinkList<T> :: display()
 {
