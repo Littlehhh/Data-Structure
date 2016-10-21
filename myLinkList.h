@@ -37,7 +37,7 @@ class LinkList{
 	 	void Inversion();//反转链表 
 		void display(); //输出链表元素
 		bool isEmpty(); //判断链表是否为空 
-		LinkList<T> * searchData(T data);//搜索元素返回索引 
+		LinkList<T> * searchData(T data);//搜索元素返回一个链表的形式返回索引 
 		T searchIndex(int Index);//搜索索引返回数据 
 		int getLength(); 
 }; 
@@ -184,6 +184,8 @@ void LinkList<T> :: display()
 template <class T>
 LinkList<T> * LinkList<T> :: searchData(T data)
 {
+	
+//类成员函数实现时可以实例化这个类本身，但是如果在类声明的时候实例化是不可以的 
 	LinkList<T> * index = new LinkList<T>;
 	Node<T> * temp;
 	int Index=1;
