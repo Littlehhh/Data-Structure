@@ -6,7 +6,8 @@ using namespace std;
 
 void main()
 {
-	int a[] = {5,2,3,6,8};
+	int a[] = {5,2,3,5,6,8},data,len;
+	LinkList<int> * Index;
 /*
 	LinkList<int>l1;
 
@@ -15,11 +16,18 @@ void main()
 	l1.InsertAtIndex(1,5);
 	l1.InsertAtTail(2);
 	l1.display();*/
-
+	
 	LinkList<int>l2(a,(sizeof(a)/sizeof(a[0])));
-	l2.display();
-	l2.Inversion();
-	l2.display();
+//	l2.display();
+//	l2.Inversion();
+	len = l2.getLength();
+	cout<<len<<endl;
+	Index = l2.searchData(5);
+	data = l2.searchIndex(3);
+	cout<<data<<endl;
+	Index->display();
+//	l2.display();
+
 /*
 	//cout<<"Length  "<<l2.head->data<<endl;
 	Queue<int> q1(a,(sizeof(a)/sizeof(a[0])));

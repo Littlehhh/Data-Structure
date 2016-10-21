@@ -10,7 +10,7 @@ class Node{
 		T data;
 		Node<T> * Next;
 };*/
-template <class T>
+template <class T>  //等同于上面注释 
 struct Node{
 	T data;
 	Node<T> * next;
@@ -33,10 +33,13 @@ class LinkList{
 		void InsertAtTail(T data);  
 		 //删除Index位置的元素
 		void Delete(int Index); 
-		//void DeleteAtTail();
+		//void DeleteAtTail();//可以用 Delete（xx.getLength()）;代替 
 	 	void Inversion();//反转链表 
 		void display(); //输出链表元素
-		
+		bool isEmpty(); //判断链表是否为空 
+		LinkList<T> * searchData(T data);//搜索元素返回索引 
+		T searchIndex(int Index);//搜索索引返回数据 
+		int getLength(); 
 }; 
 //成员函数实现
 template <class T>
@@ -176,6 +179,56 @@ void LinkList<T> :: display()
 		cout<<temp->data<<endl;
 		temp = temp->next;
 	}
+
+}
+template <class T>
+LinkList<T> * LinkList<T> :: searchData(T data)
+{
+	LinkList<T> * index = new LinkList<T>;
+	Node<T> * temp;
+	int Index=1;
+	if(this->isEmpty())
+	{	cout<<"空链表"<<endl;return NULL;}
+	temp = this->head->next;
+	while(temp)
+	{
+		if(temp->data == data)
+			index->InsertAtTail(Index);
+		temp = temp->next;
+		Index++;	
+	} 
+	if(index->isEmpty())
+	{	cout<<"该链表中没有此数据"<<endl;return NULL;}
+	return index;
+}
+
+template <class T>
+T LinkList<T> :: searchIndex(int Index)
+{
+	Node<T> * temp;
+	if( (this->head->data) < Index )
+	{cout<<"该链表中没有此索引"<<endl;return NULL;}
+	else
+	{
+		temp = head; 
+		for(int i = 1;i < Index;i++)
+			temp = temp->next;//找到前一个位置 
+		return temp->next->data;
+	}
+
+}
+template <class T>
+bool LinkList<T> :: isEmpty()
+{	
+	if( this->head->data == 0)
+		return true;
+	else 
+		return false;
+}
+template <class T>
+int LinkList<T> :: getLength()
+{
+	return this->head->data;
 
 }
 #endif
