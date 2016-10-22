@@ -29,7 +29,7 @@ void main()
 	l1.Insert(0,5);
 	l1.PrintList();
 	l1.Insert(0,3);
-//	l1.PrintList();
+	l1.PrintList();
 	int a = l1.Length();
 	cout<<a;
 }

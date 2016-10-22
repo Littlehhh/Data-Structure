@@ -1,7 +1,7 @@
 #ifndef myQueue_H
 #define myQueue_H
 #include<iostream>
-//鏅�氶槦鍒楃殑鏁扮粍瀹炵幇 
+//普通队列的数组实现 
 using namespace std;
 template<typename T>
 class Queue{
