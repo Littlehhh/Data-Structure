@@ -8,12 +8,15 @@ void Menu();
 void Menu2();
 void Menu3();
 void Menu4();
+
+
 void main()
 {
 	int select,data,Index,flag=0;
 	Queue<int>q1;
 	Stack<int>s1;
 	LinkList<int>l1;
+	LinkList<int> * index;
 	while(1)	
 	{	
 		Menu();
@@ -29,9 +32,13 @@ void main()
 							case 1:	cout<<"Enter the Data"<<endl;cin>>data;q1.EnQueue(data);break;
 							case 2:	q1.DeQueue();break; 
 							case 3:	q1.display();break;
-							case 4: break;
+							case 4: cout<<"Enter the Data"<<endl;cin>>data;
+									index=q1.searchData(data);
+									cout<<"该数据所在索引为："<<endl; 
+									index->display();
+									index->~LinkList();break;
 							case 5: flag = 1;break;
-							default:cout<<"请输入1~4之间的功能"<<endl;
+							default:cout<<"请输入1~5之间的功能"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -46,9 +53,13 @@ void main()
 							case 1:	cout<<"Enter the Data"<<endl;cin>>data;s1.push(data);break;
 							case 2:	s1.pop();break; 
 							case 3:	s1.display();break;
-							case 4: break;
+							case 4: cout<<"Enter the Data"<<endl;cin>>data;
+									index=s1.searchData(data);
+									cout<<"该数据所在索引为："<<endl;
+									index->display();
+									index->~LinkList();break;
 							case 5: flag = 1;break;
-							default:cout<<"请输入1~4之间的功能"<<endl;
+							default:cout<<"请输入1~5之间的功能"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -63,9 +74,13 @@ void main()
 							case 1:	cout<<"Enter the Data"<<endl;cin>>data;l1.InsertAtTail(data);break;
 							case 2:	cout<<"Enter the Index"<<endl;cin>>Index;l1.Delete(Index);break; 
 							case 3:	l1.display();break;
-							case 4: break;
+							case 4: cout<<"Enter the Data"<<endl;cin>>data;
+									index=l1.searchData(data);
+									cout<<"该数据所在索引为："<<endl; 
+									index->display();
+									index->~LinkList();break;
 							case 5: flag = 1;break;
-							default:cout<<"请输入1~4之间的功能"<<endl;
+							default:cout<<"请输入1~5之间的功能"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -96,6 +111,7 @@ void Menu2()
 	cout<<"          2 Dequeue"<<endl;
 	cout<<"          3 Display"<<endl;
 	cout<<"          4 Search"<<endl;
+	cout<<"          5 EXIT"<<endl;
 }
 void Menu3()
 {
@@ -103,6 +119,7 @@ void Menu3()
 	cout<<"          2 Pop"<<endl;
 	cout<<"          3 Display"<<endl;
 	cout<<"          4 Search"<<endl;
+	cout<<"          5 EXIT"<<endl;
 }
 void Menu4()
 {
@@ -110,6 +127,7 @@ void Menu4()
 	cout<<"          2 Delete"<<endl;
 	cout<<"          3 Display"<<endl;
 	cout<<"          4 Search"<<endl;
+	cout<<"          5 EXIT"<<endl;
 }
 
 
