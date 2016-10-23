@@ -103,7 +103,7 @@ void LinkList<T> :: InsertAtIndex(int Index,T data)//索引从1开始  将data插入索引
 		temp = head;
 		for(int i = 1;i < Index;i++)
 			temp = temp->next;//找到前一个位置 
-	 	newNode = new Node<T>;
+	 	newNode = new Node<T>; 
 		newNode->next = temp->next;
 		newNode->data = data;
 		temp->next = newNode;
@@ -179,7 +179,6 @@ void LinkList<T> :: display()
 		cout<<temp->data<<endl;
 		temp = temp->next;
 	}
-
 }
 template <class T>
 LinkList<T> * LinkList<T> :: searchData(T data)
