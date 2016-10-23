@@ -1,4 +1,4 @@
-//»ùÓÚÕ»µİ¹éµÄººÅµËş
+//åŸºäºæ ˆé€’å½’çš„æ±‰è¯ºå¡”
 #include <iostream>
 #include "myLinkList.h"
 #include "myStackDerived.h"

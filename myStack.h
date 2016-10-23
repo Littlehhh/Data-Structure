@@ -1,7 +1,7 @@
 #ifndef myStack_H
 #define myStack_H
 #include<iostream>
-//栈的数组实现 
+//鏍堢殑鏁扮粍瀹炵幇 
 using namespace std;
 template<typename T>
 class Stack{

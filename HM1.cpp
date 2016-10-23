@@ -16,39 +16,39 @@ void main()
 		cin>>select;
 		switch(select)
 		{
-			case 1:	cout<<"ÇëÊäÈëËæ»úÊı¸öÊı"<<endl;
+			case 1:	cout<<"è¯·è¾“å…¥éšæœºæ•°ä¸ªæ•°"<<endl;
 					cin>>n;
- 					cout<<"ÇëÊäÈëËæ»úÊı²úÉú·¶Î§"<<endl;
+ 					cout<<"è¯·è¾“å…¥éšæœºæ•°äº§ç”ŸèŒƒå›´"<<endl;
  					cin>>start>>end; 
-		 			//Éú³ÉËæ»úÊı 
+		 			//ç”Ÿæˆéšæœºæ•° 
 					myRandom(start,end,n,Enter);					
 					printArray(Enter,n);
-					//½«Êı×éĞ´ÈëÎÄ¼şRtest.txt 
+					//å°†æ•°ç»„å†™å…¥æ–‡ä»¶Rtest.txt 
 					wFile("Rtest.txt",Enter,n); break;
-			case 2:	//´ÓRtest.txt¶Á³öËæ»úÊı
+			case 2:	//ä»Rtest.txtè¯»å‡ºéšæœºæ•°
 					rFile("Rtest.txt",data,n);
-					//Çó×î´ó×îĞ¡ 
+					//æ±‚æœ€å¤§æœ€å° 
 					Min = sMin(data,n);cout<<"Min = "<<Min<<endl;
 					Max = sMax(data,n);cout<<"Max = "<<Max<<endl;break; 
 			case 3:	rFile("Rtest.txt",data,n);
-					//Ã°Åİ 
+					//å†’æ³¡ 
 					bubbleSort(data,n);
 					printArray(data,n);break;
 			case 4: rFile("Rtest.txt",data,n);
-					//²åÈë 
+					//æ’å…¥ 
 					insertSort(data,n);
 					printArray(data,n);break;
 			case 5: rFile("Rtest.txt",data,n);
-					//Ñ¡Ôñ 
+					//é€‰æ‹© 
 					selectSort(data,n);
 					printArray(data,n);break;
 			case 6: rFile("Rtest.txt",data,n);
-					//Ï£¶û 
+					//å¸Œå°” 
 					shellSort(data,n);
 					printArray(data,n);break;			
 			case 7: wFile("Result.txt",data,n);break;	
 			case 8: return;
-			default:cout<<"ÇëÊäÈë1~8Ö®¼äµÄ¹¦ÄÜ"<<endl;
+			default:cout<<"è¯·è¾“å…¥1~8ä¹‹é—´çš„åŠŸèƒ½"<<endl;
 		}
 
 	} 
@@ -61,13 +61,13 @@ void Menu()
 
 	cout<<"************************by WangHui*"<<endl;
 	
-	cout<<"          1 Éú³ÉËæ»úÊı"<<endl;
-	cout<<"          2 Êä³öMax£¬Min"<<endl;
+	cout<<"          1 ç”Ÿæˆéšæœºæ•°"<<endl;
+	cout<<"          2 è¾“å‡ºMaxï¼ŒMin"<<endl;
 	cout<<"          3 bubbleSort"<<endl;
 	cout<<"          4 insertSort"<<endl;
 	cout<<"          5 selectSort"<<endl;
 	cout<<"          6 shellSort"<<endl;
-	cout<<"          7 ±£´æÅÅĞò½á¹û"<<endl;
+	cout<<"          7 ä¿å­˜æ’åºç»“æœ"<<endl;
 	cout<<"          8 EXIT"<<endl;
 		 
 }

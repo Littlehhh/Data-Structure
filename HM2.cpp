@@ -31,7 +31,7 @@ void main()
 							case 3:	q1.display();break;
 							case 4: break;
 							case 5: flag = 1;break;
-							default:cout<<"ÇëÊäÈë1~4Ö®¼äµÄ¹¦ÄÜ"<<endl;
+							default:cout<<"è¯·è¾“å…¥1~4ä¹‹é—´çš„åŠŸèƒ½"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -48,7 +48,7 @@ void main()
 							case 3:	s1.display();break;
 							case 4: break;
 							case 5: flag = 1;break;
-							default:cout<<"ÇëÊäÈë1~4Ö®¼äµÄ¹¦ÄÜ"<<endl;
+							default:cout<<"è¯·è¾“å…¥1~4ä¹‹é—´çš„åŠŸèƒ½"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -65,14 +65,14 @@ void main()
 							case 3:	l1.display();break;
 							case 4: break;
 							case 5: flag = 1;break;
-							default:cout<<"ÇëÊäÈë1~4Ö®¼äµÄ¹¦ÄÜ"<<endl;
+							default:cout<<"è¯·è¾“å…¥1~4ä¹‹é—´çš„åŠŸèƒ½"<<endl;
 						}
 						if(flag == 1)
 							break;
 					}
 					break;
 			case 4: return;
-			default:cout<<"ÇëÊäÈë1~4Ö®¼äµÄ¹¦ÄÜ"<<endl;
+			default:cout<<"è¯·è¾“å…¥1~4ä¹‹é—´çš„åŠŸèƒ½"<<endl;
 		}
 		flag = 0;
 	}

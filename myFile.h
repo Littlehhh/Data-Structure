@@ -4,28 +4,28 @@
 #include<iostream>
 #include<fstream>
 using namespace std;
-//½«Êı×éĞ´ÈëÎÄ¼şRtest.txt 
+//å°†æ•°ç»„å†™å…¥æ–‡ä»¶Rtest.txt 
 void wFile(string Filename,int Enter[],int n)
 {
 	fstream file;
 	file.open(Filename,ios::out);
 	if(!file)
 	{
-		cout<<"´ò¿ªÎÄ¼şÊ§°Ü"<<endl;
+		cout<<"æ‰“å¼€æ–‡ä»¶å¤±è´¥"<<endl;
 		return; 
 	}
 	for(int i=0;i<n;i++)
 		file<<Enter[i]<<"  ";
 	file.close();
 }
-//´ÓRtest.txt¶Á³öËæ»úÊı
+//ä»Rtest.txtè¯»å‡ºéšæœºæ•°
 void rFile(string Filename,int data[],int n)	
 {	 
 	fstream file;
 	file.open(Filename,ios::in);
 	if(!file)
 	{
-		cout<<"´ò¿ªÎÄ¼şÊ§°Ü"<<endl;
+		cout<<"æ‰“å¼€æ–‡ä»¶å¤±è´¥"<<endl;
 		return; 
 	}
 	for(int i=0;i<n;i++)

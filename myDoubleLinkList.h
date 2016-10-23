@@ -1,7 +1,7 @@
 #ifndef _DoubleLinkList_H
 #define _DoubleLinkList_H
-//´øÍ·½ÚµãµÄË«ÏòÁ´±í
-//Í·½Úµãdata´æ´¢Á´±í³¤¶È 
+//å¸¦å¤´èŠ‚ç‚¹çš„åŒå‘é“¾è¡¨
+//å¤´èŠ‚ç‚¹dataå­˜å‚¨é“¾è¡¨é•¿åº¦ 
 #include<iostream>
 using namespace std;
 template <class T>
@@ -14,9 +14,9 @@ struct DbNode{
 
 template <class T>
 class DbLinkList{
-	protected://·½±ã¼Ì³Ğ
+	protected://æ–¹ä¾¿ç»§æ‰¿
 		DbNode<T> * head,* tail;
-		int size;//¼ÇÂ¼Á´±í³¤¶È 
+		int size;//è®°å½•é“¾è¡¨é•¿åº¦ 
 	public:
 		DbLinkList();//	construction	 
 		DbLinkList(T a[], int n); // construction with parameter
@@ -31,7 +31,7 @@ class DbLinkList{
 		
 };
 //implementation
-//´øÄ£°åµÄÀàÉùÃ÷ºÍ³ÉÔ±º¯ÊıÊµÏÖÔÚÓĞĞ©±àÒëÆ÷ÉÏÎŞ·¨·Ö¿ª±àÒë 
+//å¸¦æ¨¡æ¿çš„ç±»å£°æ˜å’Œæˆå‘˜å‡½æ•°å®ç°åœ¨æœ‰äº›ç¼–è¯‘å™¨ä¸Šæ— æ³•åˆ†å¼€ç¼–è¯‘ 
 template <class T>
 DbLinkList<T> :: DbLinkList()
 {
@@ -54,13 +54,13 @@ DbLinkList<T> :: DbLinkList(T a[], int n)
 	for(int i=0;i<n;i++)
 	{
 		temp->right =  new DbNode<T>;
-		temp->right->left = temp;  //ĞÂ½áµãµÄ×óÖ¸ÕëÖ¸ÏòÇ°Çı½áµã
+		temp->right->left = temp;  //æ–°ç»“ç‚¹çš„å·¦æŒ‡é’ˆæŒ‡å‘å‰é©±ç»“ç‚¹
 		temp = temp->right;
 		temp->data = a[i];
 		temp->right = NULL;
 	}
 	tail = temp;
-	//tail->right = head; //Ñ­»·Á´±í¸ÄÔì¹Ø¼ü 
+	//tail->right = head; //å¾ªç¯é“¾è¡¨æ”¹é€ å…³é”® 
 	head->data = n;
 }
 template <class T>
@@ -85,7 +85,7 @@ void DbLinkList<T> :: Insertion(T data,int Index)
 		DbNode<T> * temp,*newDbNode;
 		temp = head;
 		for(int i = 1;i < Index;i++)
-			temp = temp->right;  //ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
+			temp = temp->right;  //æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
 	 	newDbNode = new DbNode<T>;
 	 	newDbNode->left = temp;
 	 	newDbNode->right = temp->right;
@@ -94,7 +94,7 @@ void DbLinkList<T> :: Insertion(T data,int Index)
 		head->data++;
 	}
 	else
-		cout<<"´íÎóµÄË÷ÒıÊäÈë"<<endl;
+		cout<<"é”™è¯¯çš„ç´¢å¼•è¾“å…¥"<<endl;
 }
 
 template <class T>
@@ -115,7 +115,7 @@ void DbLinkList<T> :: deleteAtIndex(int Index)
 		DbNode<T> * temp,*deDbNode;
 		temp = head;
 		for(int i = 1;i < Index;i++)
-			temp = temp->right;//ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
+			temp = temp->right;//æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
 	 	deDbNode = temp->right;
 	 	deDbNode->right->left = deDbNode->left;
 	 	temp->right = deDbNode->right;
@@ -123,7 +123,7 @@ void DbLinkList<T> :: deleteAtIndex(int Index)
 		head->data--;
 	}
 	else
-		cout<<"´íÎóµÄË÷ÒıÊäÈë"<<endl;
+		cout<<"é”™è¯¯çš„ç´¢å¼•è¾“å…¥"<<endl;
 
 }
 template <class T>
@@ -131,12 +131,12 @@ T DbLinkList<T> :: search(int Index) const
 {
 	DbNode<T> * temp;
 	if( (this->head->data) < Index )
-	{cout<<"¸ÃÁ´±íÖĞÃ»ÓĞ´ËË÷Òı"<<endl;return NULL;}
+	{cout<<"è¯¥é“¾è¡¨ä¸­æ²¡æœ‰æ­¤ç´¢å¼•"<<endl;return NULL;}
 	else
 	{
 		temp = head; 
 		for(int i = 1;i < Index;i++)
-			temp = temp->right;//ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
+			temp = temp->right;//æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
 		return temp->right->data;
 	}
 

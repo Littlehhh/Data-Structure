@@ -5,9 +5,9 @@ template <class T>
 class Stack:public LinkList<T>{
 	public:
 		Stack(){
-		  //²»º¬²Î¹¹Ôìº¯Êý¿ÉÒÔÄ¬ÈÏ¼Ì³Ð 
+		  //ä¸å«å‚æž„é€ å‡½æ•°å¯ä»¥é»˜è®¤ç»§æ‰¿ 
 		}
-		//º¬²ÎÎö¹¹º¯ÊýÐèÒªÖØÐÂÊµÏÖ 
+		//å«å‚æžæž„å‡½æ•°éœ€è¦é‡æ–°å®žçŽ° 
 		Stack(T a[],int n) : LinkList (a,n) {
 			this->Inversion();
 		} 
