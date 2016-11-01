@@ -10,7 +10,7 @@ class Node{
 		T data;
 		Node<T> * Next;
 };*/
-template <class T>  //ç­‰åŒäºä¸Šé¢æ³¨é‡Š 
+template <class T>  //µÈÍ¬ÓÚÉÏÃæ×¢ÊÍ 
 struct Node{
 	T data;
 	Node<T> * next;
@@ -19,29 +19,29 @@ template <class T>
 class LinkList{
 	//private:
 	protected:
-		Node<T> * head,* tail; //å¤´èŠ‚ç‚¹æ•°æ®åŸŸç”¨æ¥ä¿å­˜é“¾è¡¨é•¿åº¦
+		Node<T> * head,* tail; //Í·½ÚµãÊı¾İÓòÓÃÀ´±£´æÁ´±í³¤¶È
 		int size; 
 	public:
-		//æ„é€ å‡½æ•° 
-		LinkList(); //æœ‰ä¸€ä¸ªå¤´èŠ‚ç‚¹çš„ç©ºé“¾è¡¨ 
-		LinkList(T a[],int n); //ç”Ÿæˆå­˜å…¥æ•°ç»„aä¸­å…ƒç´ çš„é“¾è¡¨ 
-		//ææ„å‡½æ•° 
+		//¹¹Ôìº¯Êı 
+		LinkList(); //ÓĞÒ»¸öÍ·½ÚµãµÄ¿ÕÁ´±í 
+		LinkList(T a[],int n); //Éú³É´æÈëÊı×éaÖĞÔªËØµÄÁ´±í 
+		//Îö¹¹º¯Êı 
 		virtual ~LinkList();
-		//å‘é“¾è¡¨ä¸­æ’å…¥å…ƒç´ 
+		//ÏòÁ´±íÖĞ²åÈëÔªËØ
 		void InsertAtHead(T data);
 		void InsertAtIndex(int Index,T data);
 		void InsertAtTail(T data);  
-		 //åˆ é™¤Indexä½ç½®çš„å…ƒç´ 
+		 //É¾³ıIndexÎ»ÖÃµÄÔªËØ
 		void Delete(int Index); 
-		//void DeleteAtTail();//å¯ä»¥ç”¨ Deleteï¼ˆxx.getLength()ï¼‰;ä»£æ›¿ 
-	 	void Inversion();//åè½¬é“¾è¡¨ 
-		void display(); //è¾“å‡ºé“¾è¡¨å…ƒç´ 
-		bool isEmpty(); //åˆ¤æ–­é“¾è¡¨æ˜¯å¦ä¸ºç©º 
-		LinkList<T> * searchData(T data);//æœç´¢å…ƒç´ è¿”å›ä¸€ä¸ªé“¾è¡¨çš„å½¢å¼è¿”å›ç´¢å¼• 
-		T searchIndex(int Index);//æœç´¢ç´¢å¼•è¿”å›æ•°æ® 
+		//void DeleteAtTail();//¿ÉÒÔÓÃ Delete£¨xx.getLength()£©;´úÌæ 
+	 	void Inversion();//·´×ªÁ´±í 
+		void display(); //Êä³öÁ´±íÔªËØ
+		bool isEmpty(); //ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ 
+		LinkList<T> * searchData(T data);//ËÑË÷ÔªËØ·µ»ØÒ»¸öÁ´±íµÄĞÎÊ½·µ»ØË÷Òı 
+		T searchIndex(int Index);//ËÑË÷Ë÷Òı·µ»ØÊı¾İ 
 		int getLength(); 
 }; 
-//æˆå‘˜å‡½æ•°å®ç°
+//³ÉÔ±º¯ÊıÊµÏÖ
 template <class T>
 LinkList<T> :: LinkList()
 {
@@ -70,7 +70,7 @@ LinkList<T> :: LinkList(T a[],int n)
 	tail = temp;
 	tail->next = NULL;
 }
-//ææ„å‡½æ•° 
+//Îö¹¹º¯Êı 
 template <class T>
 LinkList<T> :: ~LinkList()
 {
@@ -95,22 +95,22 @@ void LinkList<T> :: InsertAtHead(T data)
 	head->data ++;
 }
 template <class T>
-void LinkList<T> :: InsertAtIndex(int Index,T data)//ç´¢å¼•ä»1å¼€å§‹  å°†dataæ’å…¥ç´¢å¼•çš„ä½ç½® 
+void LinkList<T> :: InsertAtIndex(int Index,T data)//Ë÷Òı´Ó1¿ªÊ¼  ½«data²åÈëË÷ÒıµÄÎ»ÖÃ 
 {	
 	if( Index>0 && Index <=(this->head->data)  )
 	{ 
 		Node<T> * temp,*newNode;
 		temp = head;
 		for(int i = 1;i < Index;i++)
-			temp = temp->next;//æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
-	 	newNode = new Node<T>; 
+			temp = temp->next;//ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
+	 	newNode = new Node<T>;
 		newNode->next = temp->next;
 		newNode->data = data;
 		temp->next = newNode;
 		head->data++;
 	}
 	else
-		cout<<"é”™è¯¯çš„ç´¢å¼•è¾“å…¥"<<endl;
+		cout<<"´íÎóµÄË÷ÒıÊäÈë"<<endl;
 }
 template <class T>
 void LinkList<T> :: InsertAtTail(T data)
@@ -129,14 +129,14 @@ void LinkList<T> :: Delete(int Index)
 		Node<T> * temp,*deNode;
 		temp = head;
 		for(int i = 1;i < Index;i++)
-			temp = temp->next;//æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
+			temp = temp->next;//ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
 		deNode = temp->next;
 		temp->next = deNode->next;
 		head->data--;
 		delete deNode;
 	}
 	else
-		cout<<"é”™è¯¯çš„ç´¢å¼•è¾“å…¥æˆ–é“¾è¡¨å·²ç©º"<<endl; 
+		cout<<"´íÎóµÄË÷ÒıÊäÈë»òÁ´±íÒÑ¿Õ"<<endl; 
 }
 /*
 template <class T>
@@ -176,20 +176,21 @@ void LinkList<T> :: display()
 	temp = head->next;
 	while(temp)
 	{
-		cout<<temp->data<<endl;
+		cout<<temp->data<<"  ";
 		temp = temp->next;
 	}
+	cout<<endl;
 }
 template <class T>
 LinkList<T> * LinkList<T> :: searchData(T data)
 {
 	
-//ç±»æˆå‘˜å‡½æ•°å®ç°æ—¶å¯ä»¥å®ä¾‹åŒ–è¿™ä¸ªç±»æœ¬èº«ï¼Œä½†æ˜¯å¦‚æœåœ¨ç±»å£°æ˜çš„æ—¶å€™å®ä¾‹åŒ–æ˜¯ä¸å¯ä»¥çš„ 
+//Àà³ÉÔ±º¯ÊıÊµÏÖÊ±¿ÉÒÔÊµÀı»¯Õâ¸öÀà±¾Éí£¬µ«ÊÇÈç¹ûÔÚÀàÉùÃ÷µÄÊ±ºòÊµÀı»¯ÊÇ²»¿ÉÒÔµÄ 
 	LinkList<T> * index = new LinkList<T>;
 	Node<T> * temp;
 	int Index=1;
 	if(this->isEmpty())
-	{	cout<<"ç©ºé“¾è¡¨"<<endl;return NULL;}
+	{	cout<<"¿ÕÁ´±í"<<endl;return NULL;}
 	temp = this->head->next;
 	while(temp)
 	{
@@ -199,7 +200,7 @@ LinkList<T> * LinkList<T> :: searchData(T data)
 		Index++;	
 	} 
 	if(index->isEmpty())
-	{	cout<<"è¯¥é“¾è¡¨ä¸­æ²¡æœ‰æ­¤æ•°æ®"<<endl;return NULL;}
+	{	cout<<"¸ÃÁ´±íÖĞÃ»ÓĞ´ËÊı¾İ"<<endl;return NULL;}
 	return index;
 }
 
@@ -208,12 +209,12 @@ T LinkList<T> :: searchIndex(int Index)
 {
 	Node<T> * temp;
 	if( (this->head->data) < Index )
-	{cout<<"è¯¥é“¾è¡¨ä¸­æ²¡æœ‰æ­¤ç´¢å¼•"<<endl;return NULL;}
+	{cout<<"¸ÃÁ´±íÖĞÃ»ÓĞ´ËË÷Òı"<<endl;return NULL;}
 	else
 	{
 		temp = head; 
 		for(int i = 1;i < Index;i++)
-			temp = temp->next;//æ‰¾åˆ°å‰ä¸€ä¸ªä½ç½® 
+			temp = temp->next;//ÕÒµ½Ç°Ò»¸öÎ»ÖÃ 
 		return temp->next->data;
 	}
 

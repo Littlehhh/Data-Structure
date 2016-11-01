@@ -1,4 +1,4 @@
-#ifndef _myQueueDerived_H
+﻿#ifndef _myQueueDerived_H
 #define _myQueueDerived_H
 #include"myLinKList.h"
 using namespace std;

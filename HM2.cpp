@@ -1,9 +1,10 @@
-#include<iostream>
+﻿#include<iostream>
 #include"myLinkList.h"
 #include"myQueueDerived.h"
 #include"myStackDerived.h"
 
 using namespace std;
+
 void Menu();
 void Menu2();
 void Menu3();
@@ -13,9 +14,10 @@ void Menu4();
 void main()
 {
 	int select,data,Index,flag=0;
-	Queue<int>q1;
-	Stack<int>s1;
-	LinkList<int>l1;
+	int a[] = {5,2,3,5,6,8};
+	Queue<int> q1(a,(sizeof(a)/sizeof(a[0])));
+	Stack<int> s1(a,(sizeof(a)/sizeof(a[0])));
+	LinkList<int> l1(a,(sizeof(a)/sizeof(a[0])));
 	LinkList<int> * index;
 	while(1)	
 	{	
@@ -79,8 +81,9 @@ void main()
 									cout<<"该数据所在索引为："<<endl; 
 									index->display();
 									index->~LinkList();break;
-							case 5: flag = 1;break;
-							default:cout<<"请输入1~5之间的功能"<<endl;
+							case 5: l1.Inversion();break;
+							case 6: flag = 1;break;
+							default:cout<<"请输入1~6之间的功能"<<endl;
 						}
 						if(flag == 1)
 							break;
@@ -95,39 +98,40 @@ void main()
 void Menu()
 {
  
-	cout<<"*********DSAA experiment3**********"<<endl;
-
-	cout<<"************************by WangHui*"<<endl;
+	cout<<"\t\t\t*********DSAA Experiment3**********"<<endl;
+	cout<<"\t\t\t***********************************"<<endl;
+	cout<<"\t\t\t************************by WangHui*"<<endl;
 	
-	cout<<"          1 Queue"<<endl;
-	cout<<"          2 Stack"<<endl;
-	cout<<"          3 List"<<endl;
-	cout<<"          4 Exit"<<endl;
+	cout<<"\t\t\t          1 Queue"<<endl;
+	cout<<"\t\t\t          2 Stack"<<endl;
+	cout<<"\t\t\t          3 List"<<endl;
+	cout<<"\t\t\t          4 Exit"<<endl;
 
 }
 void Menu2()
 {
-	cout<<"          1 EnQueue"<<endl;
-	cout<<"          2 Dequeue"<<endl;
-	cout<<"          3 Display"<<endl;
-	cout<<"          4 Search"<<endl;
-	cout<<"          5 EXIT"<<endl;
+	cout<<"\t\t\t          1 EnQueue"<<endl;
+	cout<<"\t\t\t          2 Dequeue"<<endl;
+	cout<<"\t\t\t          3 Display"<<endl;
+	cout<<"\t\t\t          4 Search"<<endl;
+	cout<<"\t\t\t          5 EXIT"<<endl;
 }
 void Menu3()
 {
-	cout<<"          1 Push"<<endl;
-	cout<<"          2 Pop"<<endl;
-	cout<<"          3 Display"<<endl;
-	cout<<"          4 Search"<<endl;
-	cout<<"          5 EXIT"<<endl;
+	cout<<"\t\t\t          1 Push"<<endl;
+	cout<<"\t\t\t          2 Pop"<<endl;
+	cout<<"\t\t\t          3 Display"<<endl;
+	cout<<"\t\t\t          4 Search"<<endl;
+	cout<<"\t\t\t          5 EXIT"<<endl;
 }
 void Menu4()
 {
-	cout<<"          1 Insert"<<endl;
-	cout<<"          2 Delete"<<endl;
-	cout<<"          3 Display"<<endl;
-	cout<<"          4 Search"<<endl;
-	cout<<"          5 EXIT"<<endl;
+	cout<<"\t\t\t          1 Insert"<<endl;
+	cout<<"\t\t\t          2 Delete"<<endl;
+	cout<<"\t\t\t          3 Display"<<endl;
+	cout<<"\t\t\t          4 Search"<<endl;
+	cout<<"\t\t\t          5 Inversion"<<endl;
+	cout<<"\t\t\t          6 EXIT"<<endl;
 }
 
 

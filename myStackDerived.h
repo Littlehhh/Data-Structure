@@ -1,4 +1,4 @@
-#ifndef _myStackDerived_H
+﻿#ifndef _myStackDerived_H
 #define _myStackDerived_H
 #include "myLinkList.h"
 template <class T>
