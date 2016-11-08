@@ -2,7 +2,9 @@
 #define mySort_H
 #include<iostream>
 #include<stdio.h>
-//æ±‚æœ€å¤§å€¼
+#include<vector>
+using namespace std;
+//Çó×î´óÖµ
 int sMax(int data[] , int n)
 {
 	int temp = data[0];
@@ -24,7 +26,7 @@ int sMin(int data[] , int n)
 	return temp;
 }
 
-//æ‰“å°æ•°ç»„ 
+//´òÓ¡Êı×é 
 void printArray(int data[] , int n)
 {
     for(int i = 0; i < n; i++)
@@ -41,7 +43,7 @@ void swap(int *x,int *y)
 	*x = *y;
 	*y = temp; 
 }
-//å†’æ³¡æ’åº 
+//Ã°ÅİÅÅĞò 
 void bubbleSort(int data[], int n)
 {
 
@@ -57,7 +59,7 @@ void bubbleSort(int data[], int n)
             }
         }
 }
-//æ’å…¥æ’åº 
+//²åÈëÅÅĞò 
 void insertSort(int data[], int n)
 {
 
@@ -71,7 +73,7 @@ void insertSort(int data[], int n)
     }
 
 }
-//é€‰æ‹©æ’åº 
+//Ñ¡ÔñÅÅĞò 
 void selectSort(int data[], int n)
 {
     for(int i=0; i<n-1; i++)
@@ -90,8 +92,8 @@ void selectSort(int data[], int n)
 
     }
 }
-//å¸Œå°”æ’åº
-//ä½¿ç”¨å¸Œå°”å¢é‡
+//Ï£¶ûÅÅĞò
+//Ê¹ÓÃÏ£¶ûÔöÁ¿
 void shellSort(int data[], int n)
 {	
 	int temp,i; 
@@ -113,6 +115,48 @@ void shellSort(int data[], int n)
 	
 	}
 
+}
+
+
+
+//¹é²¢ÅÅĞò
+void merge( vector<int> &a, vector<int> &temp, int leftPos, int rightPos, int rightEnd)
+{
+    int leftEnd = rightPos - 1;
+    int tmpPos = leftPos;
+    int numElements = rightEnd - leftPos + 1;
+
+    while( leftPos <= leftEnd && rightPos <= rightEnd )
+        if( a[ leftPos ] <= a[ rightPos ] )
+            temp[ tmpPos++ ] = std::move( a[ leftPos++ ] );
+        else
+            temp[ tmpPos++ ] = std::move( a[ rightPos++ ] );
+
+    while( leftPos <= leftEnd )
+        temp[ tmpPos++ ] = std::move( a[ leftPos++ ] );
+
+    while( rightPos <= rightEnd )
+        temp[ tmpPos++ ] = std::move( a[ rightPos++ ] );
+
+    for( int i = 0; i < numElements; ++i, --rightEnd )
+        a[ rightEnd ] = std::move( temp[ rightEnd ] );	
+} 
+void mergeSort( vector<int> &a, vector<int> &temp, int left,int right)
+{
+	if(left < right)
+	{
+		int center = (left + right) / 2;
+		mergeSort( a,temp,left,center);
+		mergeSort( a,temp,center+1,right);	
+		merge( a,temp,left,center+1,right );
+	}
+}
+
+void mergeSort( vector< int > & a )
+{
+    vector< int > tmpArray( a.size( ) );
+
+    mergeSort( a, tmpArray, 0, a.size( ) - 1 );
 }
 
 #endif
