@@ -38,10 +38,14 @@ void printArray(int data[] , int n)
 }
 void swap(int *x,int *y)
 {
+	*x=*x^*y;
+	*y=*y^*x;
+	*x=*x^*y;
+/*
 	int temp;
 	temp = *x;
 	*x = *y;
-	*y = temp; 
+	*y = temp; */
 }
 //冒泡排序 
 void bubbleSort(int data[], int n)
@@ -84,10 +88,10 @@ void selectSort(int data[], int n)
                 min = j;
          if(min != i)
          {
-         	swap(data[i],data[min]);
-            /*data[i] = data[i] ^ data[min];
+         	
+            data[i] = data[i] ^ data[min];
             data[min] = data[i] ^ data[min];
-            data[i] = data[i] ^ data[min];*/
+            data[i] = data[i] ^ data[min];
          }
 
     }
@@ -116,10 +120,96 @@ void shellSort(int data[], int n)
 	}
 
 }
+//快速排序
+//数组实现
+void quickSort( int a[], int left, int right)
+{
+	int Pivot;
+	int i = left,j = right-1;
+	if(right>left)
+	{ 
+		Pivot = a[ right ];
+		while(1)
+		{
+			while(a[i++] < Pivot){}
+			while(a[j--] > Pivot){}
+			if( (i-1) < (j+1) )
+			{	
+			
+				swap(a[i-1],a[j+1]);
+				//坑爹的地方   位运算当a==b 的时候会悲剧 交换完就等于零了 或者说是同一个地址时会悲剧 
 
+/*
+	  			a[i-1] = a[i-1] ^ a[j+1];
+	            a[j+1] = a[i-1] ^ a[j+1];
+	            a[i-1] = a[i-1] ^ a[j+1];*/
+			}
+			else
+				break;
+		}
+		swap(a[i-1],a[right]);
+
+
+/*
+		a[i-1] = a[i-1] ^ a[right];
+	 	a[right] = a[i-1] ^ a[right];
+	 	a[i-1] = a[i-1] ^ a[right];*/
+	 	quickSort(a,left,i-2);
+	 	quickSort(a,i,right);
+	}
+}
+
+void quickSort( int a[], int n) //驱动 
+{
+	quickSort(a,0,n-1); 
+	
+} 
 
 
 //归并排序
+//数组实现 
+void merge( int a[], int temp[], int leftPos, int rightPos, int rightEnd)
+{
+    int leftEnd = rightPos - 1;
+    int tmpPos = leftPos;
+    int numElements = rightEnd - leftPos + 1;
+
+    while( leftPos <= leftEnd && rightPos <= rightEnd )
+        if( a[ leftPos ] <= a[ rightPos ] )
+            temp[ tmpPos++ ] =  a[ leftPos++ ] ;
+        else
+            temp[ tmpPos++ ] =  a[ rightPos++ ] ;
+
+    while( leftPos <= leftEnd )
+        temp[ tmpPos++ ] =  a[ leftPos++ ] ;
+
+    while( rightPos <= rightEnd )
+        temp[ tmpPos++ ] =  a[ rightPos++ ] ;
+
+    for( int i = 0; i < numElements; ++i, --rightEnd )
+        a[ rightEnd ] =  temp[ rightEnd ] ;	
+} 
+void mergeSort( int a[], int temp[], int left,int right)
+{
+	if(left < right)
+	{
+		int center = (left + right) / 2;
+		mergeSort( a,temp,left,center);
+		mergeSort( a,temp,center+1,right);	
+		merge( a,temp,left,center+1,right );
+	}
+}
+
+void mergeSort( int a[] , int n)
+{
+    int *tmpArray = new int[n];
+
+    mergeSort( a, tmpArray, 0, n-1 );
+    delete tmpArray;
+}
+
+
+//vector实现 
 void merge( vector<int> &a, vector<int> &temp, int leftPos, int rightPos, int rightEnd)
 {
     int leftEnd = rightPos - 1;
