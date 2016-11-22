@@ -1,4 +1,7 @@
-//优先队列的实现 
+//优先队列的实现
+#ifndef binaryHeap_H
+#define binaryHeap_H
+ 
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -8,7 +11,7 @@ class binaryHeap{
 	private:
 		vector<Comparable> array;
 		int currentSize;
-		void buidHeap()
+		void buildHeap()
   		{
         	for( int i = currentSize / 2; i > 0; --i )
             	percolateDown( i );
@@ -17,12 +20,19 @@ class binaryHeap{
 		
 	public:
 		explicit binaryHeap( const vector<Comparable> & items)
- 		 : array( items.size( ) + 10 ), currentSize{ items.size( ) }
+ 		 : array( items.size( ) + 10 ), currentSize( items.size( ) )
 	    {
 	        for( int i = 0; i < items.size( ); ++i )
 	            array[ i + 1 ] = items[ i ];
 	        buildHeap( );
 	    }
+	    binaryHeap( Comparable *items , int n)
+	    : array( n + 10 ), currentSize(n)  
+		{
+  			for( int i = 0; i < n; ++i )
+	            array[ i + 1 ] = items[ i ];
+	        buildHeap( );
+		}
 		bool isEmpty() const
 		{ return currentSize == 0; }
 		const Comparable & findMin() const
@@ -60,14 +70,13 @@ void binaryHeap<Comparable> :: deleteMin()
 	percolateDown( 1 );
 }
 template<class Comparable> 
-void binaryHeap<Comparable> :: deleteMin(Comparable & minItem)
+void binaryHeap<Comparable> :: deleteMin(Comparable &minItem)
 {
 	if( isEmpty() )
 		return;	
 	minItem = array[ 1 ];
 	array[1] = array[ currentSize-- ]; 
 	percolateDown( 1 );
-
 }
 template<class Comparable> 
 void binaryHeap<Comparable> :: percolateDown( int hole )
@@ -90,7 +99,7 @@ void binaryHeap<Comparable> :: percolateDown( int hole )
 
 
 
-
+#endif
 
 
 
