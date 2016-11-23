@@ -3,6 +3,7 @@
 #include<iostream>
 #include<stdio.h>
 #include<vector>
+#include "binaryHeap.h" 
 using namespace std;
 //求最大值
 int sMax(int data[] , int n)
@@ -36,17 +37,38 @@ void printArray(int data[] , int n)
 
     cout<<endl;
 }
+
+
+/*
 void swap(int *x,int *y)
 {
 	*x=*x^*y;
 	*y=*y^*x;
 	*x=*x^*y;
+
+
+
+	int temp;
+	temp = *x;
+	*x = *y;
+	*y = temp; 
+}*/
+
+void swap(int &x,int &y)
+{
+	if(x==y)return;		//正确的做法 
+	x=x^y;
+	y=y^x;
+	x=x^y;
 /*
 	int temp;
 	temp = *x;
 	*x = *y;
 	*y = temp; */
+
 }
+
+
 //冒泡排序 
 void bubbleSort(int data[], int n)
 {
@@ -248,5 +270,10 @@ void mergeSort( vector< int > & a )
 
     mergeSort( a, tmpArray, 0, a.size( ) - 1 );
 }
-
+//堆排序 
+void heapSort( binaryHeap<int> & a , int *data,int n) 
+{
+	for(int i=0; i<n ; i++)
+		a.deleteMin(*(data+i));
+}
 #endif
