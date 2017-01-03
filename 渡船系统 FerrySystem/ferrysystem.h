@@ -7,6 +7,7 @@
 #include<queue>
 #include<string>
 
+
 using namespace std;
 namespace Ui {
 class FerrySystem;
@@ -20,7 +21,7 @@ public:
     explicit FerrySystem(QWidget *parent = 0);
     ~FerrySystem();
 
-
+    int getedit();
 
 private slots:
     void on_pushButton_clicked();
@@ -32,11 +33,16 @@ private:
 };
 
 typedef struct _guest{
+    int num;
     string name;
+    string sex;
     int age;
-    int ArriveTime;
-    int ReachTime;
-    int Priority;
+    long int ArriveTime;
+    int h;
+    int m;
+    int s;
+    long int ReachTime;
+    long int Priority;
     bool operator < (const _guest &x) const
     {
         return Priority<x.Priority;
@@ -54,9 +60,10 @@ class boat{
         }
 
 };
+void printVector(vector<guest>& all);
 void getGuest(vector<guest>& all,string filename);
 void printQueue(queue<guest>& all);
 bool sortTime( const guest &x1, const guest &x2);
-void run(string filename);
+void run(string filename,int currentTime);
 string Int2Time(int time);
 #endif // FERRYSYSTEM_H
